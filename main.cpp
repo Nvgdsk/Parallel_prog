@@ -50,9 +50,7 @@ int main()
 	int start = 0;
 	for (int i = 0; i < count_thread; i++)
 	{
-		streams.push_back(async(print_array, ptrarray, column, start, middle));
-		start = middle;
-		middle = i== count_thread-2 ? middle = row: middle +=middle;
+		streams.push_back(async(print_array, ptrarray, column, row/count_thread*i, i==(count_thread-1)?row:row/count_thread*(i+1)));
 		
 
 	}
